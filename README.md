@@ -8,9 +8,8 @@
 * firebase-tools
 
 ## Build Setup
-
+- create firebase app at [firebase console](https://console.firebase.google.com/)
 ``` bash
-# create firebase app at [firebase console](https://console.firebase.google.com/)
 # install dependencies
 yarn install
 
