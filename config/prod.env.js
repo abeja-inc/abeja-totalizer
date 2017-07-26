@@ -1,7 +1,8 @@
 module.exports = {
   NODE_ENV: '"production"',
-  FB_API_KEY: '"xxxx"',
-  FB_AUTH_DOMAIN: '"xxxx"',
-  FB_DATABASE_URL: '"xxxxxx"',
-  DB_NAME: '"totalizer"'
+  FB_API_KEY: '"xxxxxx"',
+  FB_AUTH_DOMAIN: '"xxxxxx"',
+  FB_DATABASE_URL: '"xxxxx"',
+  DB_NAME: '"xxxx"',
+  HOST: '"http://localhost:8080"'
 }

@@ -12,7 +12,7 @@
     "prepackage-functions": "rimraf functions",
     "package-functions": "babel 'functionsES6' --out-dir 'functions' --presets=es2015 --copy-files --ignore 'node_modules'",
     "postpackage-functions": "cd functions && yarn",
-    "deploy": "yarn run package-functions && firebase deploy"
+    "deploy": "yarn build && yarn run package-functions && firebase deploy"
   },
   "dependencies": {
     "axios": "^0.16.1",

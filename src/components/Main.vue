@@ -48,6 +48,7 @@
 
 <script type="text/babel">
 import draggable from 'vuedraggable'
+import firebase from 'firebase'
 
 export default {
   fbBind: function () {
@@ -82,7 +83,8 @@ export default {
       this.question.selections = this.question.selections.filter(selection => selection)
       console.log(this.question.selections)
       const key = await this.$firebaseRefs.questions.push(this.question).key
-      const guestURL = `${process.env.HOST}/#/${key}/guest`
+      let host = process.env.NODE_ENV === 'development' ? `${process.env.HOST}` : `https://${firebase.app().options.authDomain}`
+      const guestURL = `${host}/#/${key}/guest`
       await this.$firebaseRefs.questions.child(key).set(Object.assign(this.question, {
         guestURL
       }))

@@ -29,15 +29,15 @@
             <i class="fa fa-quote-left fa-3x fa-border" aria-hidden="true"></i>
             {{question.subject}}
           </div>
-          <div class="columns is-mobile" v-for="(result,index) in results" :key="index">
+          <div class="columns is-mobile" v-for="(selection,index) in question.selections" :key="index">
             <div class="column">
               <p class="notification is-info">
-                {{result.selection.subject}}
+                {{selection.subject}}
               </p>
             </div>
             <div class="column is-narrow">
               <p class="notification is-warning result-count">
-                {{result.selection.count}}
+                {{selection.count}}
               </p>
             </div>
           </div>
@@ -79,34 +79,6 @@
         user: null,
         radio: null,
         questionKey: this.$route.params.key
-      }
-    },
-    computed: {
-      answersCount () {
-        const retValue = {}
-        if (!this.question.answers) {
-          return retValue
-        }
-        Object.keys(this.question.answers).forEach((key) => {
-          const selectedValue = this.question.answers[key].selected
-          if (retValue[selectedValue]) {
-            retValue[selectedValue]++
-          } else {
-            retValue[selectedValue] = 1
-          }
-        })
-        return retValue
-      },
-      results () {
-        const retValue = []
-        this.question.selections.forEach((s, index) => {
-          const newObject = {
-            selection: s,
-            count: this.answersCount[index] ? this.answersCount[index] : 0
-          }
-          retValue.push(newObject)
-        })
-        return retValue
       }
     }
   }
